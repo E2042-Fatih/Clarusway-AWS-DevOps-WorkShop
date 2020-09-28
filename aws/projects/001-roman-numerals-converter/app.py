@@ -6,7 +6,7 @@ app = Flask (__name__)
 
 @app.route("/")
 def home ():
-    return render_template ("index.html", developer_name = "E2005-Kerem")
+    return render_template ("index.html", not_valid = False, developer_name = "E2042-Fatih")
 
 
 @app.route ("/", methods = ["GET","POST"])
@@ -14,7 +14,7 @@ def calc ():
     if request.method == "POST":
         number = request.form["number"]
         if number.isdigit() == False or not 0<int(number)<4000:
-            return render_template("index.html" , not_valid = True , developer_name = "E2005-Kerem")
+            return render_template("index.html" , not_valid = True , developer_name = "E2042-Fatih")
         else:
             L100 = {"0":"","1":"C", "2":"CC", "3":"CCC", "4":"CD", "5":"D", "6":"DC", "7":"DCC", "8":"DCCC", "9":"CM"}
             L10 = {"0":"","1":"X", "2":"XX", "3":"XXX", "4":"XL", "5":"L", "6":"LX", "7":"LXX", "8":"LXXX", "9":"XC"}
@@ -35,8 +35,10 @@ def calc ():
                 return roman
 
             
-        return render_template("result.html", number_decimal=number , number_roman = conv(number) , developer_name = "E2005-Kerem")
+        return render_template("result.html", number_decimal=number , number_roman = conv(number) , developer_name = "E2042-Fatih")
 
 
 if __name__ == "__main__":
-    app.run (host = '0.0.0.0' , port= 80)
+
+    app.run(debug = True)
+    #app.run(host = '0.0.0.0', port = 80)

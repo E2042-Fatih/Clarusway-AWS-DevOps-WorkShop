@@ -1,0 +1,32 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Description:  Kittens Carousel is a static website application deployed with Apache Web Server on AWS Elastic Compute Cloud (EC2) Instance using AWS Cloudformation Service.
+
+Resources:
+  ProjectInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-0c94855ba95c71c99
+      InstanceType: t2.micro
+      KeyName: ilkpair
+      SecurityGroups: 
+        - launch-wizard-3
+      UserData:
+         Fn::Base64:
+          !Sub |
+             #! /bin/bash -xe
+            
+              mkdir templates
+              cd templates/
+              wget https://raw.githubusercontent.com/albertsunn/aws-workshop/master/aws/projects/001-roman-numerals-converter/templates/index.html
+              wget https://raw.githubusercontent.com/albertsunn/aws-workshop/master/aws/projects/001-roman-numerals-converter/templates/result.html
+              cd ..
+              wget https://raw.githubusercontent.com/albertsunn/aws-workshop/master/aws/projects/001-roman-numerals-converter/app.py
+              sudo yum update -y
+              sudo yum install python3 -y
+              sudo pip3 install flask
+              sudo python3 app.py
+            
+      Tags:
+        - Key: Name
+          Value: projectApache

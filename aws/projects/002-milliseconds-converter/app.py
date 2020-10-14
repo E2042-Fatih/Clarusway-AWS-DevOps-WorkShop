@@ -1,19 +1,12 @@
-
-
 from flask import Flask, render_template, request 
-
 
 
 app = Flask (__name__)
 
 
-
 @app.route("/")
 def home ():
     return render_template ("index.html", not_valid = False, developer_name = "E2042-Fatih")
-
-
-
 
 @app.route ("/", methods = ["POST"])
 def calc ():
@@ -48,8 +41,6 @@ def calc ():
 
             
     return render_template("result.html", milliseconds = own_number , result = convert(int(own_number)) , developer_name = "Albert")
-
-
 
 if __name__ == "__main__":
 

@@ -54,3 +54,13 @@ The clarusway-workshop repository contains materials related to the IT trainings
 - After cloning or downloading this repo, students are recommended to create their own local relevant repos and work on them.
 
 - Once the student are done with their portfolio work, they will push the solutions to their own public GitHub repos to showcase their training.
+
+## Naming Convention for Folders 
+
+- Use lower case letters to name the folders.
+
+- The name of the folder should give detailed info about it's contents such as date/session, instructor and title:
+
+    - 2020-06-30-victor-using-package-manager
+    
+    - 2020-07-19-osvaldo-asg-2
